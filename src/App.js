@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Button from "./components/Button";
 
 class App extends Component {
+  showLogin() {
+    console.log("click login button");
+  }
+  showRegister() {
+    console.log("click Register button");
+  }
+  showLogout() {
+    console.log("click Logout button");
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="main">
+        <div className="sub-main">
+          <Button onClick={this.showLogin} className="button-one">
+            Login
+          </Button>
+        </div>
+        <div className="sub-main">
+          <Button onClick={this.showRegister} className="button-two">
+            Register
+          </Button>
+        </div>
+        <div className="sub-main">
+          <Button onClick={this.showLogout} className="button-three">
+            Log out
+          </Button>
+        </div>
       </div>
     );
   }
