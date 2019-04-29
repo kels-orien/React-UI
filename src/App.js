@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Button from "./components/Button";
-
+import Form from "./components/Form";
 class App extends Component {
   showLogin() {
     console.log("click login button");
@@ -29,6 +29,8 @@ class App extends Component {
             Log out
           </Button>
         </div>
+        <Form title="LOGIN" buttonText="Log In" />
+        <Form title="REGISTER" buttonText="Register" />
       </div>
     );
   }

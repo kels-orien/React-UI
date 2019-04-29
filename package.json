@@ -6,8 +6,7 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5",
-    "react-styleguidist": "^9.0.4"
+    "react-scripts": "2.1.5"
   },
   "scripts": {
     "styleguide": "styleguidist server",
@@ -29,10 +28,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^5.0.2",
-    "@storybook/addon-actions": "^5.0.2",
-    "@storybook/addon-links": "^5.0.2",
-    "@storybook/addons": "^5.0.2",
     "@babel/core": "^7.3.4",
     "babel-loader": "^8.0.5"
   }
