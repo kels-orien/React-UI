@@ -14,7 +14,8 @@ export default class Form extends Component {
       <div className="login-form">
         <form onSubmit={this.handleSubmit}>
           <h1>{title}</h1>
-          <input type="text" name="username" placeholder="username" />
+          <i
+          gnput type="text" name="username" placeholder="username" />
           <input type="password" name="password" placeholder="password" />
           <Button className="button-one" type="submit">
             {buttonText}
