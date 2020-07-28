@@ -5,6 +5,13 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 import List from "../components/List";
 import { Button, Welcome } from "@storybook/react/demo";
+import Loading from "../components/styled-components/loading";
+import { CustomButton } from "../components/styled-components/button";
+import Card from "../components/styled-components/card";
+import ControlledCarousel from "../components/react-bootstrap/controlledcarousel";
+import NavBar from "../components/react-bootstrap/navbar";
+import Search from "../components/react-bootstrap/search";
+import "../scss/custom.scss";
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
@@ -23,3 +30,30 @@ storiesOf("Button", module)
   ));
 
 storiesOf("List", module).add("Simple dnd List", () => <List />);
+
+storiesOf("Loading", module).add("Loading", () => <Loading />);
+
+storiesOf("CustomButton", module)
+  .add("custom button", () => <CustomButton>Price</CustomButton>)
+  .add("custom with color prop", () => (
+    <CustomButton
+      borderColor={"border-color: rgb(0, 106, 255)"}
+      onClick={action("clicked")}
+    >
+      For Sale
+    </CustomButton>
+  ))
+  .add("customButton hover prop", () => (
+    <CustomButton
+      hoverColor={"border-color: rgb(0, 106, 255)"}
+      onClick={action("clicked")}
+    >
+      More
+    </CustomButton>
+  ));
+
+storiesOf("Card", module).add("grid card", () => <Card />);
+storiesOf("Boostrap", module)
+  .add("Controlled Carousel", () => <ControlledCarousel />)
+  .add("Navbar", () => <NavBar />)
+  .add("Search", () => <Search />);
