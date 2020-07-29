@@ -11,6 +11,7 @@ import Card from "../components/styled-components/card";
 import ControlledCarousel from "../components/react-bootstrap/controlledcarousel";
 import NavBar from "../components/react-bootstrap/navbar";
 import Search from "../components/react-bootstrap/search";
+import BootCard from "../components/react-bootstrap/card";
 import "../scss/custom.scss";
 
 storiesOf("Welcome", module).add("to Storybook", () => (
@@ -53,7 +54,8 @@ storiesOf("CustomButton", module)
   ));
 
 storiesOf("Card", module).add("grid card", () => <Card />);
-storiesOf("Boostrap", module)
+storiesOf("Bootstrap", module)
   .add("Controlled Carousel", () => <ControlledCarousel />)
   .add("Navbar", () => <NavBar />)
-  .add("Search", () => <Search />);
+  .add("Search", () => <Search />)
+  .add("Card", ()=><BootCard/>);

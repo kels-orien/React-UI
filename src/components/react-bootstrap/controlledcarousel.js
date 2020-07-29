@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
-
+import House from "../../assets/images/house.jpg";
 function ControlledCarousel() {
   const [index, setIndex] = useState(0);
 
@@ -9,13 +9,10 @@ function ControlledCarousel() {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
+    <div className="carousel-width">
+        <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
-        <img
-          className="d-block w-100 modify"
-          src="https://res.cloudinary.com/dofiasjpi/image/upload/v1566409027/e-shop/Phones/IPhone%20XS%20Max/41KkP71hu1L.jpg"
-          alt="First slide"
-        />
+        <img className="d-block w-100" src={House} alt="First slide" />
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -23,7 +20,7 @@ function ControlledCarousel() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100 modify"
+          className="d-block w-100"
           src="https://res.cloudinary.com/dofiasjpi/image/upload/v1566409021/e-shop/Phones/Readmi%20Note%207/31eJ7ewJ_lL.jpg"
           alt="Second slide"
         />
@@ -48,6 +45,8 @@ function ControlledCarousel() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div>
+    
   );
 }
 
