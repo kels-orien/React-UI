@@ -13,6 +13,9 @@ import NavBar from "../components/react-bootstrap/navbar";
 import Search from "../components/react-bootstrap/search";
 import BootCard from "../components/react-bootstrap/card";
 import "../scss/custom.scss";
+import { UseCarousel } from "../components/react-bootstrap/usecarousel";
+import HookForm from "../components/react-bootstrap/form";
+
 
 storiesOf("Welcome", module).add("to Storybook", () => (
   <Welcome showApp={linkTo("Button")} />
@@ -58,4 +61,6 @@ storiesOf("Bootstrap", module)
   .add("Controlled Carousel", () => <ControlledCarousel />)
   .add("Navbar", () => <NavBar />)
   .add("Search", () => <Search />)
-  .add("Card", ()=><BootCard/>);
+  .add("Card", () => <BootCard />)
+  .add("useCarousel", () => <UseCarousel />)
+  .add("Hook Form", () =><HookForm/> );
