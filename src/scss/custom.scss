@@ -11,7 +11,7 @@ $color-primary: rgb(0, 180, 211) !important;
 }
 .navbar-modify {
     height: 60px;
-    background-color: rgb(0, 180, 211) !important;
+    background-color: $color-primary;
     color: #fff;
     font-size: 16px;
     line-height: 19px;
@@ -66,6 +66,51 @@ $color-primary: rgb(0, 180, 211) !important;
     text-decoration: none;
 }
 
+input:focus ~ .floating-label,
+input:focus:valid ~ .floating-label {
+    left: 20px;
+    font-size: 11px;
+    opacity: 1;
+    color: $color-primary;
+}
+
+.inputText {
+    font-size: 14px;
+    width: 200px;
+    height: 35px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+}
+
+.inputText:focus {
+    outline-color: $color-primary;
+}
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 20px;
+    transition: 0.2s ease all;
+}
+.pay-now-form {
+    margin: 0 auto;
+}
+.pay-now-button {
+    border: 1px solid $color-primary;
+    border-radius: 3px;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: $color-primary;
+    outline: 0;
+    padding: 5px 35px;
+    transition: 0.3s ease-in-out;
+}
+.input-group {
+    display: block;
+}
 .search-form-container .new-search-form .form-control {
     border-radius: 0;
 }

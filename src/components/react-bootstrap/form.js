@@ -1,62 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const HookForm = () => {
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = (values) => console.log(values);
 
+  const handleFocus = ({ target }) => {
+    console.log("target ", target);
+    console.log("focus is working");
+    let input = target.name;
+    if (target.value === "" || target.value.length > 0) {
+      document.getElementsByName(input).class += " input-shrink";
+    }
+  };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input
-        name="firstname"
-        ref={register({
-          required: "Required",
-          pattern: {
-            value: /^[A-Za-z\. -]+$/i,
-            message: "invalid firstname",
-          },
-        })}
-      />
-      <span class="floating-label">First Name</span>
+    <form onSubmit={handleSubmit(onSubmit)} className="pay-now-form">
+      <div className="form-group">
+        <input
+          name="firstname"
+          id="firstname"
+          className="inputText"
+          onFocus={(event) => handleFocus(event)}
+          ref={register({
+            required: "Required",
+            pattern: {
+              value: /^[A-Za-z\. -]+$/i,
+              message: "invalid firstname",
+            },
+          })}
+        />
+        <span className="floating-label">First Name</span>
+        {errors.firstname && errors.firstname.message}
+      </div>
 
-      {errors.firstname && errors.firstname.message}
+      <div className="form-group">
+        <input
+          name="lastname"
+          className="inputText"
+          ref={register({
+            required: "Required",
+            pattern: {
+              value: /^[A-Za-z\. -]+$/i,
+              message: "invalid lastname",
+            },
+          })}
+        />
+        <span className="floating-label">Last Name</span>
+        {errors.lastname && errors.lastname.message}
+      </div>
 
-      <input
-        name="lastname"
-        placeholder="Last Name"
-        ref={register({
-          required: "Required",
-          pattern: {
-            value: /^[A-Za-z\. -]+$/i,
-            message: "invalid lastname",
-          },
-        })}
-      />
-      {errors.lastname && errors.lastname.message}
-      <input
-        name="email"
-        placeholder="Email Address"
-        ref={register({
-          required: "Required",
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "invalid email address",
-          },
-        })}
-      />
-      <input
-        name="number"
-        ref={register({
-          required: "Required",
-          pattern: {
-            value: /^[0]\d{10}$/i,
-            message: "invalid phone number",
-          },
-        })}
-      />
-      {errors.number && errors.email.number}
+      <div className="form-group">
+        <input
+          name="email"
+          className="inputText"
+          ref={register({
+            required: "Required",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "invalid email address",
+            },
+          })}
+        />
+        <span className="floating-label">Email</span>
+        {errors.email && errors.email.message}
+      </div>
+      <div className="form-group">
+        <input
+          name="number"
+          className="inputText"
+          ref={register({
+            required: "Required",
+            pattern: {
+              value: /^[0]\d{10}$/i,
+              message: "invalid phone number",
+            },
+          })}
+        />
+        <span className="floating-label">First Name</span>
+        {errors.number && errors.number.message}
+      </div>
 
-      <button type="submit">Pay Now</button>
+      <div className="form-group">
+        <button type="submit" className="pay-now-button">
+          Pay Now
+        </button>
+      </div>
     </form>
   );
 };
