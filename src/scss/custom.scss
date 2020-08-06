@@ -114,6 +114,14 @@ input:focus:valid ~ .floating-label {
 .search-form-container .new-search-form .form-control {
     border-radius: 0;
 }
+
+.input-shrink {
+    left: 20px;
+    font-size: 11px;
+    opacity: 1;
+    color: #00b4d3 !important;
+}
+
 @media screen and (max-width: 767px) {
     .search-form-container.container input {
         margin-bottom: 0;

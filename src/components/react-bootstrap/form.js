@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 const HookForm = () => {
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = (values) => console.log(values);
+  const [inputLabel, setInputLabel] = useState("");
 
+  useEffect(() => {
+    // eslint-disable-next-line
+  }, []);
+
+  const handleBlur = ({ target }) => {
+    const { name, value } = target;
+    if (value.length === 0) {
+      document.getElementById(name).className = "floating-label";
+    }
+  };
   const handleFocus = ({ target }) => {
-    console.log("target ", target);
-    console.log("focus is working");
-    let input = target.name;
-    if (target.value === "" || target.value.length > 0) {
-      document.getElementsByName(input).class += " input-shrink";
+    const { name, value } = target;
+    if (value.length >= 0) {
+      document.getElementById(name).className = "floating-label input-shrink";
     }
   };
   return (
@@ -18,9 +27,9 @@ const HookForm = () => {
       <div className="form-group">
         <input
           name="firstname"
-          id="firstname"
           className="inputText"
           onFocus={(event) => handleFocus(event)}
+          onBlur={(event) => handleBlur(event)}
           ref={register({
             required: "Required",
             pattern: {
@@ -29,7 +38,9 @@ const HookForm = () => {
             },
           })}
         />
-        <span className="floating-label">First Name</span>
+        <label id="firstname" className="floating-label">
+          First Name
+        </label>
         {errors.firstname && errors.firstname.message}
       </div>
 
@@ -37,6 +48,8 @@ const HookForm = () => {
         <input
           name="lastname"
           className="inputText"
+          onFocus={(event) => handleFocus(event)}
+          onBlur={(event) => handleBlur(event)}
           ref={register({
             required: "Required",
             pattern: {
@@ -45,7 +58,9 @@ const HookForm = () => {
             },
           })}
         />
-        <span className="floating-label">Last Name</span>
+        <label id="lastname" className="floating-label">
+          Last Name
+        </label>
         {errors.lastname && errors.lastname.message}
       </div>
 
@@ -53,6 +68,8 @@ const HookForm = () => {
         <input
           name="email"
           className="inputText"
+          onFocus={(event) => handleFocus(event)}
+          onBlur={(event) => handleBlur(event)}
           ref={register({
             required: "Required",
             pattern: {
@@ -61,7 +78,9 @@ const HookForm = () => {
             },
           })}
         />
-        <span className="floating-label">Email</span>
+        <label id="email" className="floating-label">
+          Email
+        </label>
         {errors.email && errors.email.message}
       </div>
       <div className="form-group">
@@ -76,7 +95,9 @@ const HookForm = () => {
             },
           })}
         />
-        <span className="floating-label">First Name</span>
+        <label id="number" className="floating-label">
+          Phone Number
+        </label>
         {errors.number && errors.number.message}
       </div>
 
